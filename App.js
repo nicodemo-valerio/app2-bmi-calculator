@@ -1,7 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Picker } from 'react-native';
+import { StyleSheet, Text, View, Picker } from 'react-native';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 
-export default class App extends React.Component {
+class InfoScreen extends React.Component {
+  render() {
+    return (
+      <View style={[styles.container, { padding: 20, fontSize: 20 }]}>
+        <Text style={{ fontSize: 30 }}>Info</Text>
+        <Text>Body Mass Index is a value calculated from the height and weight of a person. The formula is BMI=(weight in kg)/(height in meters)^2</Text>
+        <Text>A BMI between 18.5 and 25 is considered normal.</Text>
+        <Text>This app has been developed to be useful to you. Please let me know if there is something wrong or you want a new feature to be developed. Send me an email ncdm.developer@gmail.com. Thanks!</Text>
+      </View>
+    )
+  }
+}
+
+class BmiScreen extends React.Component {
 
   constructor(props) {
     super(props);
@@ -19,7 +33,7 @@ export default class App extends React.Component {
   getBmi = () => {
     if (this.state.cm !== '0' && this.state.kg !== '0') {
       const kg = Number.parseFloat(this.state.kg);
-      const grams = Number.parseFloat(this.state.grams);
+      const grams = Number.parseFloat(this.state.grams) / 1000;
       const weight = kg + grams;
       const bmi = (weight / Math.pow((this.state.cm / 100), 2)).toString().substr(0, 5);
       return `BMI: ${bmi}`;
@@ -29,7 +43,7 @@ export default class App extends React.Component {
 
   }
 
-  convertToFeet = (cm) => {
+  setCm = (cm) => {
     const newState = this.state;
     newState.cm = cm;
     const feet = cm * 0.0328084;
@@ -38,33 +52,40 @@ export default class App extends React.Component {
     this.setState(newState);
   }
 
-  addInches = (inches) => {
+  setInches = (inches) => {
     const newState = this.state;
     newState.inches = inches;
     newState.cm = Number.parseInt((this.state.feet * 30.48) + (inches * 2.54)).toString();
     this.setState(newState);
   }
 
-  addFeet = (feet) => {
+  setFeet = (feet) => {
     const newState = this.state;
     newState.feet = feet;
     newState.cm = Number.parseInt((feet * 30.48) + (this.state.inches * 2.54)).toString();
     this.setState(newState);
   }
 
-  convertToPounds = (kg) => {
+  setKg = (kg) => {
     const newState = this.state;
     newState.kg = kg;
     newState.pounds = Number.parseInt(kg / 0.45359237).toString();
     this.setState(newState);
   }
 
-  convertToGrams = (pounds) => {
+  setGrams = (grams) => {
+    const newState = this.state;
+    newState.grams = grams;
+    newState.pounds = ((Number.parseInt(this.state.kg) + (Number.parseInt(grams) / 1000)) / 0.45359237).toString();
+    this.setState(newState);
+  }
+
+  setPounds = (pounds) => {
     const newState = this.state;
     newState.pounds = pounds;
     const kg = pounds * 0.45359237;
     newState.kg = parseInt(kg).toString();
-    newState.grams = (kg - parseInt(kg)).toString();
+    newState.grams = Number.parseInt((Math.round((kg - parseInt(kg)) * 10) * 100)).toString();
     this.setState(newState);
   }
 
@@ -82,7 +103,7 @@ export default class App extends React.Component {
             selectedValue={this.state.cm}
             style={{ height: 50, width: 80, backgroundColor: '#eee' }}
             onValueChange={(itemValue, itemIndex) =>
-              this.convertToFeet(itemValue)
+              this.setCm(itemValue)
             }>
             <Picker.Item label="0" value="0" />
             <Picker.Item label="140" value="140" />
@@ -155,17 +176,13 @@ export default class App extends React.Component {
             selectedValue={this.state.kg}
             style={{ height: 50, width: 80, backgroundColor: '#eee' }}
             onValueChange={(itemValue, itemIndex) =>
-              this.convertToPounds(itemValue)
+              this.setKg(itemValue)
             }>
             <Picker.Item label="0" value="0" />
             <Picker.Item label="30" value="30" />
-            <Picker.Item label="30.5" value="30.5" />
             <Picker.Item label="31" value="31" />
-            <Picker.Item label="31.5" value="31.5" />
             <Picker.Item label="32" value="32" />
-            <Picker.Item label="32.5" value="32.5" />
             <Picker.Item label="33" value="33" />
-            <Picker.Item label="33.5" value="33.5" />
             <Picker.Item label="34" value="34" />
             <Picker.Item label="35" value="35" />
             <Picker.Item label="36" value="36" />
@@ -235,6 +252,27 @@ export default class App extends React.Component {
             <Picker.Item label="100" value="100" />
           </Picker>
         </View>
+        {/* gr */}
+        <View style={styles.flexRow}>
+          <Text style={{ height: 50, width: 150 }}>Grams</Text>
+          <Picker
+            selectedValue={this.state.grams}
+            style={{ height: 50, width: 80, backgroundColor: '#eee' }}
+            onValueChange={(itemValue, itemIndex) =>
+              this.setGrams(itemValue)
+            }>
+            <Picker.Item label="0" value="0" />
+            <Picker.Item label="100" value="100" />
+            <Picker.Item label="200" value="200" />
+            <Picker.Item label="300" value="300" />
+            <Picker.Item label="400" value="400" />
+            <Picker.Item label="500" value="500" />
+            <Picker.Item label="600" value="600" />
+            <Picker.Item label="700" value="700" />
+            <Picker.Item label="800" value="800" />
+            <Picker.Item label="900" value="900" />
+          </Picker>
+        </View>
 
         <View style={[styles.flexRow, { borderTopColor: 'grey', borderTopWidth: 0.5 }]}>
           <Text style={{ textAlign: 'center', fontSize: 20 }}>Imperial</Text>
@@ -246,7 +284,7 @@ export default class App extends React.Component {
             selectedValue={this.state.feet}
             style={{ height: 50, width: 80, backgroundColor: '#eee' }}
             onValueChange={(itemValue, itemIndex) =>
-              this.addFeet(itemValue)
+              this.setFeet(itemValue)
             }>
             <Picker.Item label="0" value="0" />
             <Picker.Item label="4" value="4" />
@@ -262,7 +300,7 @@ export default class App extends React.Component {
             selectedValue={this.state.inches}
             style={{ height: 50, width: 80, backgroundColor: '#eee' }}
             onValueChange={(itemValue, itemIndex) =>
-              this.addInches(itemValue)
+              this.setInches(itemValue)
             }>
             <Picker.Item label="0" value="0" />
             <Picker.Item label="1" value="1" />
@@ -302,10 +340,10 @@ export default class App extends React.Component {
         <View style={styles.flexRow}>
           <Text style={{ height: 50, width: 150 }}>Weight in Pounds</Text>
           <Picker
-            selectedValue={this.state.pounds}
+            selectedValue={Number.parseInt(this.state.pounds).toString()}
             style={{ height: 50, width: 80, backgroundColor: '#eee' }}
             onValueChange={(itemValue, itemIndex) =>
-              this.convertToGrams(itemValue)
+              this.setPounds(itemValue)
             }>
             <Picker.Item label="0" value="0" />
             <Picker.Item label="50" value="50" />
@@ -586,3 +624,21 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 });
+
+const TabNavigator = createBottomTabNavigator(
+  {
+    Calculator: BmiScreen,
+    Info: InfoScreen
+  },
+  {
+    initialRouteName: 'Calculator',
+    tabBarOptions: {
+      labelStyle: {
+        fontSize: 15
+      },
+      style: { paddingBottom: 5 }
+    }
+  }
+);
+
+export default createAppContainer(TabNavigator);
