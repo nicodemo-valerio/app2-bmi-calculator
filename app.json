@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "bmi-calculator",
+    "name": "BMI Calculator",
     "slug": "bmi-calculator",
     "privacy": "public",
     "sdkVersion": "32.0.0",
@@ -24,6 +24,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "This simple app calculate the BMI (Body Mass Index) from your height and weight. It works both on Metric and Imperial systems."
   }
 }
