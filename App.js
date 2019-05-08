@@ -30,6 +30,7 @@ class BmiScreen extends React.Component {
     };
   }
 
+  // Calculate the BMI
   getBmi = () => {
     if (this.state.cm !== '0' && this.state.kg !== '0') {
       const kg = Number.parseFloat(this.state.kg);
@@ -40,7 +41,6 @@ class BmiScreen extends React.Component {
     } else {
       return null;
     }
-
   }
 
   setCm = (cm) => {
