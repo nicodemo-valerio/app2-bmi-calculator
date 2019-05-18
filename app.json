@@ -4,6 +4,9 @@
     "slug": "bmi-calculator",
     "privacy": "public",
     "sdkVersion": "32.0.0",
+    "android": {
+      "package": "com.nicodemovalerio.bmicalculator"
+    },
     "platforms": [
       "ios",
       "android"
@@ -25,6 +28,6 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "This simple app calculate the BMI (Body Mass Index) from your height and weight. It works both on Metric and Imperial systems."
+    "description": "A simple app that calculate the BMI (Body Mass Index) from a person's height and weight. It works both on Metric and Imperial systems."
   }
 }

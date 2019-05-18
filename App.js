@@ -6,10 +6,11 @@ class InfoScreen extends React.Component {
   render() {
     return (
       <View style={[styles.container, { padding: 20, fontSize: 20 }]}>
-        <Text style={{ fontSize: 30 }}>Info</Text>
-        <Text>Body Mass Index is a value calculated from the height and weight of a person. The formula is BMI=(weight in kg)/(height in meters)^2</Text>
+        <Text style={styles.pageTitle}>Info</Text>
+        <Text>Body Mass Index is a value calculated from the height and weight of a person.</Text>
+        <Text>The formula is BMI=(weight in kg)/(height in meters)^2</Text>
         <Text>A BMI between 18.5 and 25 is considered normal.</Text>
-        <Text>This app has been developed to be useful to you. Please let me know if there is something wrong or you want a new feature to be developed. Send me an email ncdm.developer@gmail.com. Thanks!</Text>
+
       </View>
     )
   }
@@ -36,8 +37,10 @@ class BmiScreen extends React.Component {
       const kg = Number.parseFloat(this.state.kg);
       const grams = Number.parseFloat(this.state.grams) / 1000;
       const weight = kg + grams;
-      const bmi = (weight / Math.pow((this.state.cm / 100), 2)).toString().substr(0, 5);
-      return `BMI: ${bmi}`;
+      const bmi = (weight / Math.pow((this.state.cm / 100), 2));
+      const style = (bmi <= 25 && bmi >= 18.5) ? { fontSize: 35, color: 'green' } : { fontSize: 35, color: 'red' };
+      const text = <Text style={style}>BMI: {bmi.toString().substr(0, 5)}</Text>;
+      return text;
     } else {
       return null;
     }
@@ -92,13 +95,13 @@ class BmiScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={{ textAlign: 'center', fontSize: 30 }}>BMI calculator</Text>
+        <Text style={styles.pageTitle}>BMI calculator</Text>
         <View style={[styles.flexRow, { borderTopColor: 'grey', borderTopWidth: 0.5 }]}>
           <Text style={{ textAlign: 'center', fontSize: 20 }}>Metric</Text>
         </View>
         {/* cm */}
         <View style={styles.flexRow}>
-          <Text style={{ height: 50, width: 150 }}>Height in cm:</Text>
+          <Text style={{ height: 50, width: 150 }}>Height in cm</Text>
           <Picker
             selectedValue={this.state.cm}
             style={{ height: 50, width: 80, backgroundColor: '#eee' }}
@@ -254,7 +257,7 @@ class BmiScreen extends React.Component {
         </View>
         {/* gr */}
         <View style={styles.flexRow}>
-          <Text style={{ height: 50, width: 150 }}>Grams</Text>
+          <Text style={{ height: 50, width: 150 }}>Additional weight in grams</Text>
           <Picker
             selectedValue={this.state.grams}
             style={{ height: 50, width: 80, backgroundColor: '#eee' }}
@@ -601,8 +604,8 @@ class BmiScreen extends React.Component {
         </View>
 
         {/* bmi */}
-        <View style={[styles.flexRow, { borderTopColor: 'grey', borderTopWidth: 0.5, paddingTop: 20 }]}>
-          <Text style={{ fontSize: 40 }}>{this.getBmi()}</Text>
+        <View style={[styles.flexRow, { borderTopColor: 'grey', borderTopWidth: 0.5, paddingTop: 10, paddingBottom: 10 }]}>
+          {this.getBmi()}
         </View>
       </View>
     );
@@ -622,6 +625,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center'
+  },
+  pageTitle: {
+    fontSize: 25,
+    textAlign: 'center'
   }
 });
 
@@ -636,7 +643,11 @@ const TabNavigator = createBottomTabNavigator(
       labelStyle: {
         fontSize: 15
       },
-      style: { paddingBottom: 5 }
+      activeTintColor: 'black',
+      activeBackgroundColor: 'white',
+      inactiveTintColor: 'white',
+      inactiveBackgroundColor: 'black',
+      style: { paddingBottom: 5, borderTopColor: 'white' }
     }
   }
 );
