@@ -1,16 +1,31 @@
 import React from 'react';
 import { StyleSheet, Text, View, Picker } from 'react-native';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { ScrollView } from 'react-native-gesture-handler';
 
 class InfoScreen extends React.Component {
   render() {
     return (
       <View style={[styles.container, { padding: 20, fontSize: 20 }]}>
         <Text style={styles.pageTitle}>Info</Text>
-        <Text>Body Mass Index is a value calculated from the height and weight of a person.</Text>
-        <Text>The formula is BMI=(weight in kg)/(height in meters)^2</Text>
-        <Text>A BMI between 18.5 and 25 is considered normal.</Text>
-
+        <View style={{ borderBottomColor: 'grey', borderBottomWidth: 0.3 }}>
+          <Text>• Body Mass Index is a value calculated from the height and weight of a person.</Text>
+          <Text>• BMI=(weight in kg)/(height in meters)&#178;</Text>
+        </View>
+        <ScrollView style={{ padding: 10 }}>
+          <Text style={{ fontWeight: 'bold' }}>Categories</Text>
+          <Text>• BMI &lt; 15 - Very severely underweight</Text>
+          <Text>• 15 &lt; BMI &lt; 16 - Severely underweight</Text>
+          <Text>• 16 &lt; BMI &lt; 18.5 - Underweight</Text>
+          <Text>• 18.5 &lt; BMI &lt; 25 - Normal</Text>
+          <Text>• 25 &lt; BMI &lt; 30 - Overweight </Text>
+          <Text>• 30 &lt; BMI &lt;35 - Obese Class I</Text>
+          <Text>• 35 &lt; BMI &lt;40 - Obese Class II</Text>
+          <Text>• 40 &lt; BMI &lt;45 - Obese Class III</Text>
+          <Text>• 45 &lt; BMI &lt;50 - Obese Class IV</Text>
+          <Text>• 50 &lt; BMI &lt;60 - Obese Class V</Text>
+          <Text>• BMI &gt; 60 - Obese Class VI</Text>
+        </ScrollView>
       </View>
     )
   }
