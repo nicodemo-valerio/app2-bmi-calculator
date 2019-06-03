@@ -6,27 +6,40 @@ import { ScrollView } from 'react-native-gesture-handler';
 class InfoScreen extends React.Component {
   render() {
     return (
-      <View style={[styles.container, { padding: 20, fontSize: 20 }]}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
         <Text style={styles.pageTitle}>Info</Text>
-        <View style={{ borderBottomColor: 'grey', borderBottomWidth: 0.3 }}>
-          <Text>• Body Mass Index is a value calculated from the height and weight of a person.</Text>
-          <Text>• BMI=(weight in kg)/(height in meters)&#178;</Text>
+        <View style={{ padding: 10 }}>
+          <Text style={{ fontWeight: 'bold', paddingLeft: 10 }}>How to use
+            the app</Text>
+          <Text style={{ padding: 10 }}>Insert the height and weight. You can use the Imperial or Metric system. The conversion is automatic. In fact you can also use the app to convert between units. Once you insert both values the BMI is displayed.</Text>
         </View>
-        <ScrollView style={{ padding: 10 }}>
-          <Text style={{ fontWeight: 'bold' }}>Categories</Text>
-          <Text>• BMI &lt; 15 - Very severely underweight</Text>
-          <Text>• 15 &lt; BMI &lt; 16 - Severely underweight</Text>
-          <Text>• 16 &lt; BMI &lt; 18.5 - Underweight</Text>
-          <Text>• 18.5 &lt; BMI &lt; 25 - Normal</Text>
-          <Text>• 25 &lt; BMI &lt; 30 - Overweight </Text>
-          <Text>• 30 &lt; BMI &lt;35 - Obese Class I</Text>
-          <Text>• 35 &lt; BMI &lt;40 - Obese Class II</Text>
-          <Text>• 40 &lt; BMI &lt;45 - Obese Class III</Text>
-          <Text>• 45 &lt; BMI &lt;50 - Obese Class IV</Text>
-          <Text>• 50 &lt; BMI &lt;60 - Obese Class V</Text>
-          <Text>• BMI &gt; 60 - Obese Class VI</Text>
-        </ScrollView>
-      </View>
+        <View style={{ padding: 10 }}>
+          <Text style={{ padding: 10 }}>Body Mass Index is a value calculated from the height and weight of a person.</Text>
+          <Text style={{ padding: 10 }}>BMI=(weight in kg)/(height in meters)&#178;</Text>
+        </View>
+        <View style={{ padding: 10 }}>
+          <Text style={{ fontWeight: 'bold', paddingLeft: 10 }}>Categories</Text>
+          <Text style={{ paddingLeft: 10 }}>• BMI &lt; 15 - Very severely underweight</Text>
+          <Text style={{ paddingLeft: 10 }}>• 15 &lt; BMI &lt; 16 - Severely underweight</Text>
+          <Text style={{ paddingLeft: 10 }}>• 16 &lt; BMI &lt; 18.5 - Underweight</Text>
+          <Text style={{ paddingLeft: 10, color: 'green' }}>• 18.5 &lt; BMI &lt; 25 - Normal weight</Text>
+          <Text style={{ paddingLeft: 10 }}>• 25 &lt; BMI &lt; 30 - Overweight </Text>
+          <Text style={{ paddingLeft: 10 }}>• 30 &lt; BMI &lt;35 - Obese Class I</Text>
+          <Text style={{ paddingLeft: 10 }}>• 35 &lt; BMI &lt;40 - Obese Class II</Text>
+          <Text style={{ paddingLeft: 10 }}>• 40 &lt; BMI &lt;45 - Obese Class III</Text>
+          <Text style={{ paddingLeft: 10 }}>• 45 &lt; BMI &lt;50 - Obese Class IV</Text>
+          <Text style={{ paddingLeft: 10 }}>• 50 &lt; BMI &lt;60 - Obese Class V</Text>
+          <Text style={{ paddingLeft: 10 }}>• BMI &gt; 60 - Obese Class VI</Text>
+        </View>
+        <View style={{ padding: 10 }}>
+          <Text style={{ fontWeight: 'bold', paddingLeft: 10 }}>About this app</Text>
+          <Text style={{ paddingLeft: 10 }}>• Version 1.0.0</Text>
+          <Text style={{ paddingLeft: 10 }}>• Developer: ncdm.developer@gmail.com</Text>
+          <Text style={{ paddingLeft: 10 }}>Please let me know if you are not satisfied with the app or how to improve it in order to get a better user experience.
+            If you are happy I really appreciate if you can give a positive rating on the Play Store.</Text>
+          <Text style={{ paddingLeft: 10 }}>Thank you, Nico</Text>
+        </View>
+      </ScrollView >
     )
   }
 }
@@ -124,6 +137,145 @@ class BmiScreen extends React.Component {
               this.setCm(itemValue)
             }>
             <Picker.Item label="0" value="0" />
+            <Picker.Item label="1" value="1" />
+            <Picker.Item label="2" value="2" />
+            <Picker.Item label="3" value="3" />
+            <Picker.Item label="4" value="4" />
+            <Picker.Item label="5" value="5" />
+            <Picker.Item label="6" value="6" />
+            <Picker.Item label="7" value="7" />
+            <Picker.Item label="8" value="8" />
+            <Picker.Item label="9" value="9" />
+            <Picker.Item label="10" value="10" />
+            <Picker.Item label="11" value="11" />
+            <Picker.Item label="12" value="12" />
+            <Picker.Item label="13" value="13" />
+            <Picker.Item label="14" value="14" />
+            <Picker.Item label="15" value="15" />
+            <Picker.Item label="16" value="16" />
+            <Picker.Item label="17" value="17" />
+            <Picker.Item label="18" value="18" />
+            <Picker.Item label="19" value="19" />
+            <Picker.Item label="20" value="20" />
+            <Picker.Item label="21" value="21" />
+            <Picker.Item label="22" value="22" />
+            <Picker.Item label="23" value="23" />
+            <Picker.Item label="24" value="24" />
+            <Picker.Item label="25" value="25" />
+            <Picker.Item label="26" value="26" />
+            <Picker.Item label="27" value="27" />
+            <Picker.Item label="28" value="28" />
+            <Picker.Item label="29" value="29" />
+            <Picker.Item label="30" value="30" />
+            <Picker.Item label="31" value="31" />
+            <Picker.Item label="32" value="32" />
+            <Picker.Item label="33" value="33" />
+            <Picker.Item label="34" value="34" />
+            <Picker.Item label="35" value="35" />
+            <Picker.Item label="36" value="36" />
+            <Picker.Item label="37" value="37" />
+            <Picker.Item label="38" value="38" />
+            <Picker.Item label="39" value="39" />
+            <Picker.Item label="40" value="40" />
+            <Picker.Item label="41" value="41" />
+            <Picker.Item label="42" value="42" />
+            <Picker.Item label="43" value="43" />
+            <Picker.Item label="44" value="44" />
+            <Picker.Item label="45" value="45" />
+            <Picker.Item label="46" value="46" />
+            <Picker.Item label="47" value="47" />
+            <Picker.Item label="48" value="48" />
+            <Picker.Item label="49" value="49" />
+            <Picker.Item label="50" value="50" />
+            <Picker.Item label="51" value="51" />
+            <Picker.Item label="52" value="52" />
+            <Picker.Item label="53" value="53" />
+            <Picker.Item label="54" value="54" />
+            <Picker.Item label="55" value="55" />
+            <Picker.Item label="56" value="56" />
+            <Picker.Item label="57" value="57" />
+            <Picker.Item label="58" value="58" />
+            <Picker.Item label="59" value="59" />
+            <Picker.Item label="60" value="60" />
+            <Picker.Item label="61" value="61" />
+            <Picker.Item label="62" value="62" />
+            <Picker.Item label="63" value="63" />
+            <Picker.Item label="64" value="64" />
+            <Picker.Item label="65" value="65" />
+            <Picker.Item label="66" value="66" />
+            <Picker.Item label="67" value="67" />
+            <Picker.Item label="68" value="68" />
+            <Picker.Item label="69" value="69" />
+            <Picker.Item label="70" value="70" />
+            <Picker.Item label="71" value="71" />
+            <Picker.Item label="72" value="72" />
+            <Picker.Item label="73" value="73" />
+            <Picker.Item label="74" value="74" />
+            <Picker.Item label="75" value="75" />
+            <Picker.Item label="76" value="76" />
+            <Picker.Item label="77" value="77" />
+            <Picker.Item label="78" value="78" />
+            <Picker.Item label="79" value="79" />
+            <Picker.Item label="80" value="80" />
+            <Picker.Item label="81" value="81" />
+            <Picker.Item label="82" value="82" />
+            <Picker.Item label="83" value="83" />
+            <Picker.Item label="84" value="84" />
+            <Picker.Item label="85" value="85" />
+            <Picker.Item label="86" value="86" />
+            <Picker.Item label="87" value="87" />
+            <Picker.Item label="88" value="88" />
+            <Picker.Item label="89" value="89" />
+            <Picker.Item label="90" value="90" />
+            <Picker.Item label="91" value="91" />
+            <Picker.Item label="92" value="92" />
+            <Picker.Item label="93" value="93" />
+            <Picker.Item label="94" value="94" />
+            <Picker.Item label="95" value="95" />
+            <Picker.Item label="96" value="96" />
+            <Picker.Item label="97" value="97" />
+            <Picker.Item label="98" value="98" />
+            <Picker.Item label="99" value="99" />
+            <Picker.Item label="100" value="100" />
+            <Picker.Item label="101" value="101" />
+            <Picker.Item label="102" value="102" />
+            <Picker.Item label="103" value="103" />
+            <Picker.Item label="104" value="104" />
+            <Picker.Item label="105" value="105" />
+            <Picker.Item label="106" value="106" />
+            <Picker.Item label="107" value="107" />
+            <Picker.Item label="108" value="108" />
+            <Picker.Item label="109" value="109" />
+            <Picker.Item label="110" value="110" />
+            <Picker.Item label="111" value="111" />
+            <Picker.Item label="112" value="112" />
+            <Picker.Item label="113" value="113" />
+            <Picker.Item label="114" value="114" />
+            <Picker.Item label="115" value="115" />
+            <Picker.Item label="116" value="116" />
+            <Picker.Item label="117" value="117" />
+            <Picker.Item label="118" value="118" />
+            <Picker.Item label="119" value="119" />
+            <Picker.Item label="120" value="120" />
+            <Picker.Item label="121" value="121" />
+            <Picker.Item label="122" value="122" />
+            <Picker.Item label="123" value="123" />
+            <Picker.Item label="124" value="124" />
+            <Picker.Item label="125" value="125" />
+            <Picker.Item label="126" value="126" />
+            <Picker.Item label="127" value="127" />
+            <Picker.Item label="128" value="128" />
+            <Picker.Item label="129" value="129" />
+            <Picker.Item label="130" value="130" />
+            <Picker.Item label="131" value="131" />
+            <Picker.Item label="132" value="132" />
+            <Picker.Item label="133" value="133" />
+            <Picker.Item label="134" value="134" />
+            <Picker.Item label="135" value="135" />
+            <Picker.Item label="136" value="136" />
+            <Picker.Item label="137" value="137" />
+            <Picker.Item label="138" value="138" />
+            <Picker.Item label="139" value="139" />
             <Picker.Item label="140" value="140" />
             <Picker.Item label="141" value="141" />
             <Picker.Item label="142" value="142" />
@@ -197,6 +349,35 @@ class BmiScreen extends React.Component {
               this.setKg(itemValue)
             }>
             <Picker.Item label="0" value="0" />
+            <Picker.Item label="1" value="1" />
+            <Picker.Item label="2" value="2" />
+            <Picker.Item label="3" value="3" />
+            <Picker.Item label="4" value="4" />
+            <Picker.Item label="5" value="5" />
+            <Picker.Item label="6" value="6" />
+            <Picker.Item label="7" value="7" />
+            <Picker.Item label="8" value="8" />
+            <Picker.Item label="9" value="9" />
+            <Picker.Item label="10" value="10" />
+            <Picker.Item label="11" value="11" />
+            <Picker.Item label="12" value="12" />
+            <Picker.Item label="13" value="13" />
+            <Picker.Item label="14" value="14" />
+            <Picker.Item label="15" value="15" />
+            <Picker.Item label="16" value="16" />
+            <Picker.Item label="17" value="17" />
+            <Picker.Item label="18" value="18" />
+            <Picker.Item label="19" value="19" />
+            <Picker.Item label="20" value="20" />
+            <Picker.Item label="21" value="21" />
+            <Picker.Item label="22" value="22" />
+            <Picker.Item label="23" value="23" />
+            <Picker.Item label="24" value="24" />
+            <Picker.Item label="25" value="25" />
+            <Picker.Item label="26" value="26" />
+            <Picker.Item label="27" value="27" />
+            <Picker.Item label="28" value="28" />
+            <Picker.Item label="29" value="29" />
             <Picker.Item label="30" value="30" />
             <Picker.Item label="31" value="31" />
             <Picker.Item label="32" value="32" />
@@ -268,6 +449,106 @@ class BmiScreen extends React.Component {
             <Picker.Item label="98" value="98" />
             <Picker.Item label="99" value="99" />
             <Picker.Item label="100" value="100" />
+            <Picker.Item label="101" value="101" />
+            <Picker.Item label="102" value="102" />
+            <Picker.Item label="103" value="103" />
+            <Picker.Item label="104" value="104" />
+            <Picker.Item label="105" value="105" />
+            <Picker.Item label="106" value="106" />
+            <Picker.Item label="107" value="107" />
+            <Picker.Item label="108" value="108" />
+            <Picker.Item label="109" value="109" />
+            <Picker.Item label="110" value="110" />
+            <Picker.Item label="111" value="111" />
+            <Picker.Item label="112" value="112" />
+            <Picker.Item label="113" value="113" />
+            <Picker.Item label="114" value="114" />
+            <Picker.Item label="115" value="115" />
+            <Picker.Item label="116" value="116" />
+            <Picker.Item label="117" value="117" />
+            <Picker.Item label="118" value="118" />
+            <Picker.Item label="119" value="119" />
+            <Picker.Item label="120" value="120" />
+            <Picker.Item label="121" value="121" />
+            <Picker.Item label="122" value="122" />
+            <Picker.Item label="123" value="123" />
+            <Picker.Item label="124" value="124" />
+            <Picker.Item label="125" value="125" />
+            <Picker.Item label="126" value="126" />
+            <Picker.Item label="127" value="127" />
+            <Picker.Item label="128" value="128" />
+            <Picker.Item label="129" value="129" />
+            <Picker.Item label="130" value="130" />
+            <Picker.Item label="131" value="131" />
+            <Picker.Item label="132" value="132" />
+            <Picker.Item label="133" value="133" />
+            <Picker.Item label="134" value="134" />
+            <Picker.Item label="135" value="135" />
+            <Picker.Item label="136" value="136" />
+            <Picker.Item label="137" value="137" />
+            <Picker.Item label="138" value="138" />
+            <Picker.Item label="139" value="139" />
+            <Picker.Item label="140" value="140" />
+            <Picker.Item label="141" value="141" />
+            <Picker.Item label="142" value="142" />
+            <Picker.Item label="143" value="143" />
+            <Picker.Item label="144" value="144" />
+            <Picker.Item label="145" value="145" />
+            <Picker.Item label="146" value="146" />
+            <Picker.Item label="147" value="147" />
+            <Picker.Item label="148" value="148" />
+            <Picker.Item label="149" value="149" />
+            <Picker.Item label="150" value="150" />
+            <Picker.Item label="151" value="151" />
+            <Picker.Item label="152" value="152" />
+            <Picker.Item label="153" value="153" />
+            <Picker.Item label="154" value="154" />
+            <Picker.Item label="155" value="155" />
+            <Picker.Item label="156" value="156" />
+            <Picker.Item label="157" value="157" />
+            <Picker.Item label="158" value="158" />
+            <Picker.Item label="159" value="159" />
+            <Picker.Item label="160" value="160" />
+            <Picker.Item label="161" value="161" />
+            <Picker.Item label="162" value="162" />
+            <Picker.Item label="163" value="163" />
+            <Picker.Item label="164" value="164" />
+            <Picker.Item label="165" value="165" />
+            <Picker.Item label="166" value="166" />
+            <Picker.Item label="167" value="167" />
+            <Picker.Item label="168" value="168" />
+            <Picker.Item label="169" value="169" />
+            <Picker.Item label="170" value="170" />
+            <Picker.Item label="171" value="171" />
+            <Picker.Item label="172" value="172" />
+            <Picker.Item label="173" value="173" />
+            <Picker.Item label="174" value="174" />
+            <Picker.Item label="175" value="175" />
+            <Picker.Item label="176" value="176" />
+            <Picker.Item label="177" value="177" />
+            <Picker.Item label="178" value="178" />
+            <Picker.Item label="179" value="179" />
+            <Picker.Item label="180" value="180" />
+            <Picker.Item label="181" value="181" />
+            <Picker.Item label="182" value="182" />
+            <Picker.Item label="183" value="183" />
+            <Picker.Item label="184" value="184" />
+            <Picker.Item label="185" value="185" />
+            <Picker.Item label="186" value="186" />
+            <Picker.Item label="187" value="187" />
+            <Picker.Item label="188" value="188" />
+            <Picker.Item label="189" value="189" />
+            <Picker.Item label="190" value="190" />
+            <Picker.Item label="191" value="191" />
+            <Picker.Item label="192" value="192" />
+            <Picker.Item label="193" value="193" />
+            <Picker.Item label="194" value="194" />
+            <Picker.Item label="195" value="195" />
+            <Picker.Item label="196" value="196" />
+            <Picker.Item label="197" value="197" />
+            <Picker.Item label="198" value="198" />
+            <Picker.Item label="199" value="199" />
+            <Picker.Item label="200" value="200" />
           </Picker>
         </View>
         {/* gr */}
@@ -628,6 +909,9 @@ class BmiScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    paddingVertical: 20
+  },
   container: {
     paddingTop: 30,
     flex: 1,
